@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <meta charset="UTF-8">
+        <title>Train Time</title>
+        
+        <!--Bootstrap/CSS link-->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="assets\css\style.css">
+        
+        <!--Jquery-->
+        <script type="text/javascript" src=https://code.jquery.com/jquery-3.3.1.min.js></script>
+    </head>
+    
+    <body>
+        <div class="container">
+            <div class="jumbotron jumbotron-fluid bg-info">
+                <div class="container">
+                    <h1 class="display-3 ml-5 text-dark">Trains are Cool!</h1>
+                    <h2 class="display-4 text-center text-dark">Schedules are better.</h2>
+                    <p class="lead text-dark">Please refer to schedule below before track maintenance</p>
+                </div>
+            </div>
+           
+            <div class="card card-default">
+                <div class="card-header bg-primary">Current Train Schedule</div>
+                <div class="card-body" id="current-trains">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Train Name</th>
+                                <th scope="col">Destination</th>
+                                <th scope="col">Frequency(min)</th>
+                                <th scope="col">Next Arrival</th>
+                                <th scope="col">Minutes Away</th>
+                            </tr>
+                        </thead>
+                            
+                        <tbody>
+                            <tr>                        
+                                <td id="train-data">Trenton Express</td>
+                                <td id="dest-data">Trenton</td>
+                                <td id="rate-data">25</td>
+                                <td id="arrive-data">05:35 PM</td>
+                                <td id="min-data">10</td>
+                            </tr>                   
+                        </tbody>                            
+                    </table>
+                </div>
+                <br>
+                <div class="card card-default">
+                    <div class="card-header bg-primary">Add Train</div>
+                    <div class="card-body">
+                        <form role="form">
+                            <div class="form-group row">
+                                <label for="train-input">Train Name</label>
+                                <input class="form-control" id="train-input" type="train">
+                            </div>
+                            <div class="form-group row">
+                                <label for="role-input">Destination</label>
+                                <input class="form-control" id="dest-input" type="destination">
+                            </div>
+                            <div class="form-group row">
+                                <label for="time-input">First Train Time (HH:mm - 24hr)</label>
+                                <input class="form-control" id="start-input" type="time">
+                            </div>
+                            <div class="form-group row">
+                                <label for="rate-input">Frequency</label>
+                                <input class="form-control" id="rate-input" type="number">
+                            </div>
+                            <button class="btn btn-dark" id="add-employee" type="submit">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </body>
+</html>
