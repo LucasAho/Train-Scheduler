@@ -13,11 +13,6 @@ firebase.initializeApp(firebaseConfig);
 
 var database = firebase.database();
 
-function timeConvert(a,b) {
-    
-
-}
-
 $("#add-train").on("click", function(event) {
     event.preventDefault();
 
@@ -26,10 +21,7 @@ $("#add-train").on("click", function(event) {
     var trainDest = $("#dest-input").val().trim();
     var trainTime = $("#time-input").val().trim();
     var trainRate = $("#rate-input").val().trim();
-
     
-
-
     //Creates temp object to hold train data
     var newTrain = {
         train: trainName,
@@ -51,24 +43,19 @@ $("#add-train").on("click", function(event) {
 //Create firebase event for adding to HTML and database
 database.ref().on("child_added", function(childSnapshot) {
     
+    //Setting train variables equal to values held in firebase
     var trainName = childSnapshot.val().train;
     var trainDest = childSnapshot.val().destination;
     var trainTime = childSnapshot.val().time;
     var trainRate = childSnapshot.val().rate;
   
+    //Creating converted and formatted times with moment.js
     var timeConverted = moment(trainTime, "HH:mm").subtract(1, "years");
-    console.log("Convert " + timeConverted);
-    var currentTime = moment();
-    console.log("Time Now " + currentTime);
-    var diffTime = moment().diff(moment(timeConverted), "minutes");
-    console.log("tDiff " + diffTime);
-    
+    var diffTime = moment().diff(moment(timeConverted), "minutes");    
     var tRemain = diffTime % trainRate;
-    console.log("tLeft " + tRemain);
     var tMinTILL = trainRate - tRemain;
-    console.log("tTill " + tMinTILL);
     var nextTrain = moment().add(tMinTILL, "minutes").format("HH:mm");
-    console.log("next " +nextTrain);
+
     // Create new row
     var newRow = $("<tr>").append(
         $("<td>").text(trainName),
