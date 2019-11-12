@@ -10,6 +10,13 @@
         
         <!--Jquery-->
         <script type="text/javascript" src=https://code.jquery.com/jquery-3.3.1.min.js></script>
+
+        <!--Firebase References-->
+        <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-database.js"></script>
+        
+        <!--Moment reference-->
+        <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
     </head>
     
     <body>
@@ -24,26 +31,18 @@
            
             <div class="card card-default">
                 <div class="card-header bg-primary">Current Train Schedule</div>
-                <div class="card-body" id="current-trains">
-                    <table class="table">
+                <div class="card-body">
+                    <table class="table" id="current-trains">
                         <thead>
                             <tr>
                                 <th scope="col">Train Name</th>
                                 <th scope="col">Destination</th>
-                                <th scope="col">Frequency(min)</th>
                                 <th scope="col">Next Arrival</th>
+                                <th scope="col">Frequency(min)</th>                                
                                 <th scope="col">Minutes Away</th>
                             </tr>
-                        </thead>
-                            
-                        <tbody>
-                            <tr>                        
-                                <td id="train-data">Trenton Express</td>
-                                <td id="dest-data">Trenton</td>
-                                <td id="rate-data">25</td>
-                                <td id="arrive-data">05:35 PM</td>
-                                <td id="min-data">10</td>
-                            </tr>                   
+                        </thead>                            
+                        <tbody>                 
                         </tbody>                            
                     </table>
                 </div>
@@ -54,26 +53,29 @@
                         <form role="form">
                             <div class="form-group row">
                                 <label for="train-input">Train Name</label>
-                                <input class="form-control" id="train-input" type="train">
+                                <input class="form-control" id="train-input" type="train" placeholder="Polar Express">
                             </div>
                             <div class="form-group row">
-                                <label for="role-input">Destination</label>
-                                <input class="form-control" id="dest-input" type="destination">
+                                <label for="dest-input">Destination</label>
+                                <input class="form-control" id="dest-input" type="destination" placeholder="North Pole">
                             </div>
                             <div class="form-group row">
                                 <label for="time-input">First Train Time (HH:mm - 24hr)</label>
-                                <input class="form-control" id="start-input" type="time">
+                                <input class="form-control" id="time-input" type="stuff" placeholder="01:13">
                             </div>
                             <div class="form-group row">
-                                <label for="rate-input">Frequency</label>
-                                <input class="form-control" id="rate-input" type="number">
+                                <label for="rate-input">Frequency(min)</label>
+                                <input class="form-control" id="rate-input" type="rate" placeholder="525600">
                             </div>
-                            <button class="btn btn-dark" id="add-employee" type="submit">Submit</button>
+                            <button class="btn btn-primary" id="add-train" type="submit">Submit</button>
                         </form>
                     </div>
                 </div>
             </div>
-
+            
         </div>
+         <!-- JavaScript -->
+        <script src="assets/logic/logic.js"></script>
+
     </body>
 </html>
